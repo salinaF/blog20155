@@ -1,0 +1,30 @@
+<div class="fixed">
+ <nav class="top-bar" data-topbar role="navigation">
+  <ul class="title-area">
+    <li class="name"><%= link_to 'Home', root_path %></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Left Nav Section -->
+    <ul class="breadcrumbs">
+     <%= link_to 'New Post', new_article_path %> 
+    </ul>
+  </section>
+ </nav>
+</div>
+
+<div class="row post">
+    <% @articles.each do |article| %>
+       <div class="post-desc">
+          <h4 class="post-title"><%= article.title %></h4>
+          <p class="post-body"><%= article.text %></p>
+          <p class="post-desc.link"><%= link_to 'Show', article_path(article) %> |
+          <%= link_to 'Edit', edit_article_path(article) %> |
+          <%= link_to 'Delete', article_path(article),
+                                method: :delete,
+                                data: {confirm: 'Are you sure?' }  %></p>
+       </div>
+     <% end %>
+</div>
+
+

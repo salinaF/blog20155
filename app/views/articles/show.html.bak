@@ -1,0 +1,45 @@
+<div class="fixed">
+ <nav class="top-bar" data-topbar role="navigation">
+  <ul class="title-area">
+    <li class="name"><%= link_to 'Home', root_path %></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Left Nav Section -->
+    <ul class="breadcrumbs">
+     <%= link_to 'New Post', new_article_path %>
+     <%= link_to 'Edit Post', edit_article_path %>
+     <%= link_to 'List All Posts', articles_path %>
+    </ul>
+  </section>
+ </nav>
+</div>
+
+<div class="row post">
+    <div class="post-desc">
+      <h3 class="post-title"><%= @article.title %></h3>
+      <p class="post-body"><%= @article.text %></p>
+    </div>
+</div>
+
+</br>
+</br>
+<div class="row comments" >
+  <div class="collapse" tabindex="1">
+    <h4><font color="blue"/>+ Comments </h4>
+      <div class="comment-desc">
+      <%= render @article.comments %>
+      </div>
+   <div class="collapse" tabindex="1">
+      <h5><font color="blue"/>- Hide</h5>
+   </div>
+  </div>
+</div>
+
+</br>
+</br>
+<div class="row">
+  <h3>Add a Comment:</h3>
+  <%= render 'comments/form' %>
+</div>
+    
